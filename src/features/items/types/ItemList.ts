@@ -20,7 +20,7 @@ export type Pagination = {
   nextPageUrl: string | null;
   prevPageUrl: string | null;
 };
-
+    
 export type ItemResponse = {
     data: Data[];
 };
