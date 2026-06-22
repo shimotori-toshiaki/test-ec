@@ -1,4 +1,4 @@
-import { ItemList } from "../components/ItemList"
+import { ItemList } from "../features/items/components/ItemList"
 export const ItemListPage = () => {
     return(
         <>
