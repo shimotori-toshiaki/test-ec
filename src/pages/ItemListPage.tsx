@@ -3,7 +3,7 @@ import { fetcher } from "../api/fetcher";
 import type { Item, PaginatedResponse } from "../features/items/types/Item";
 import { ItemList } from "../features/items/components/ItemList";
 import { useState } from "react";
-    
+
 export const ItemListPage = () => {
   const [input, setInput] = useState("");
   const [keyword, setKeyword] = useState("");
