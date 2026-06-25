@@ -22,6 +22,10 @@ export const ItemListPage = () => {
   }
 
   const items = data?.data ?? [];
+
+  if(items.length === 0){
+    return <p>データがありません</p>;
+  }
   
   const displayItems = keyword ? items.filter((item) => item.name.includes(keyword)) : items;
   
