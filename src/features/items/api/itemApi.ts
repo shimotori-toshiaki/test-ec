@@ -1,7 +1,7 @@
 import { apiClient } from "../../../api/client";
-import type { ItemResponse } from "../types/ItemList";
+import type { Item, PaginatedResponse } from "../types/Item";
 
-export const getItems = async (url: string): Promise<ItemResponse> => {
-    const res = await apiClient.get<ItemResponse>(url);
-    return res.data;
+export const getItems = async (url: string): Promise<PaginatedResponse<Item>> => {
+  const res = await apiClient.get<PaginatedResponse<Item>>(url);
+  return res.data;
 };

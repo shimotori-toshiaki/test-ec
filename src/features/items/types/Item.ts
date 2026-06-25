@@ -1,4 +1,4 @@
-export type Data = {
+export type Item = {
     id: number;
     name: string;
     price: number;
@@ -12,15 +12,17 @@ export type Data = {
 
 export type Pagination = {
   currentPage: number;
-  lastPage: number;
-  perPage: number;
-  total: number;
   from: number;
-  to: number;
+  lastPage: number;
+  lastPageUrl: string;
   nextPageUrl: string | null;
+  path: string;
+  perPage: number;
   prevPageUrl: string | null;
+  to: number;
+  total: number;
 };
-    
-export type ItemResponse = {
-    data: Data[];
+
+export type PaginatedResponse<T> = Pagination & {
+    data: T[];
 };

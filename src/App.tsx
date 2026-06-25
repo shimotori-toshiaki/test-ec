@@ -9,11 +9,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<TopPage />} />
-          <Route path="item-list" element={<ItemListPage />} />
+          <Route path="/item-list" element={<ItemListPage />} />
         </Route>
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
