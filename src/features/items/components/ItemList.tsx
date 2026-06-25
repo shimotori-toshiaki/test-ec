@@ -1,29 +1,29 @@
-import { useItemList } from "../hooks/useItemLits";
+import type { Item } from "../types/Item";
 
-export const ItemList = () => {
-  const { data, error, isLoading } = useItemList();
-  if (isLoading) return <p>読み込み中</p>;
-  if (error) return <p>商品一覧の取得に失敗しました</p>;
-  const items = data?.data ?? [];
-  if (items.length === 0) return <p>商品がありません</p>;
-  return (
-    <>
-      <div className="flex flex-wrap gap-4">
-        {items.map((item) => (
-          <div key={item.id} className="flex gap-4 rounded border border-gray-300 p-4">
-            <div
-              className="h-24 w-24 rounded bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${item.image})` }}
-            />
-            <div className="flex flex-col justify-between">
-              <p className="font-bold">{item.name}</p>
-              <p>{item.content}</p>
-              <p>{item.price}円</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
-  );
+type Props = {
+  data: Item[];
 };
 
+export const ItemList = ({ data }: Props) => {
+  return (
+    <div className="w-full max-w-[1000px] grid grid-cols-3 gap-4">
+      {data.map((item) => (
+        <div
+          className="border border-gray-300 p-4 flex gap-6"
+          key={item.id}
+        >
+          <div
+            className="h-[120px] w-[120px] shrink-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${item.image})` }}
+          />
+          
+          <div className="flex flex-col gap-2 overflow-hidden w-full">
+            <p className="font-bold">{item.name}</p>
+            <p className="text-sm overflow-hidden">{item.content}</p>
+            <p>{item.price}円</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
